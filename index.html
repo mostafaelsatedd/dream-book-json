@@ -1,15 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ملفات الكتاب</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#173f35">
+  <title>كتاب تفسير الأحلام</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f6f2; --paper:#fffefa; --ink:#1f2b27; --muted:#65736d; --green:#1e5948; --green2:#e5efe9; --line:#dce5df; --gold:#c49742; --shadow:0 8px 28px rgba(22,54,42,.07); }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:Tahoma, Arial, sans-serif; }
+    header { background:linear-gradient(135deg,#143c32,#28664e); color:white; padding:22px 18px 20px; }
+    .head-inner { width:min(1180px,100%); margin:auto; }
+    .eyebrow { font-size:12px; opacity:.8; margin-bottom:7px; }
+    h1 { font-size:clamp(23px,4vw,34px); line-height:1.5; margin:0; }
+    #subtitle { font-size:13px; color:#e3eee7; margin:7px 0 0; }
+    .statusbar { width:min(1180px,calc(100% - 28px)); margin:14px auto 0; min-height:20px; color:var(--muted); font-size:13px; }
+    .layout { width:min(1180px,calc(100% - 28px)); margin:14px auto 32px; display:grid; grid-template-columns:310px minmax(0,1fr); gap:16px; align-items:start; }
+    .panel { background:var(--paper); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; }
+    .side { position:sticky; top:12px; }
+    .side-head { padding:16px; border-bottom:1px solid var(--line); }
+    .side-head h2 { margin:0 0 12px; font-size:17px; }
+    input[type=search] { width:100%; border:1px solid #cbd8d0; border-radius:10px; padding:12px 13px; font:inherit; font-size:14px; background:#fff; color:var(--ink); outline:none; }
+    input[type=search]:focus { border-color:var(--green); box-shadow:0 0 0 3px rgba(30,89,72,.12); }
+    .toc { padding:8px; max-height:calc(100vh - 235px); overflow:auto; }
+    .toc button { display:block; width:100%; text-align:right; border:0; border-radius:9px; background:transparent; padding:11px 12px; margin:2px 0; color:var(--ink); font:inherit; font-size:13px; line-height:1.8; cursor:pointer; }
+    .toc button:hover { background:#f0f5f1; }
+    .toc button.active { background:var(--green2); color:var(--green); font-weight:bold; border-right:3px solid var(--gold); }
+    .reader { min-height:480px; }
+    .reader-tools { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--line); background:#fff; }
+    .tool-btn { border:1px solid var(--line); background:#fff; color:var(--green); border-radius:9px; padding:8px 11px; font:inherit; font-size:13px; cursor:pointer; }
+    .tool-btn:hover:not(:disabled) { background:var(--green2); }
+    .tool-btn:disabled { opacity:.4; cursor:not-allowed; }
+    .tools-spacer { flex:1; }
+    #fontLabel { color:var(--muted); font-size:12px; min-width:42px; text-align:center; }
+    .article { padding:clamp(18px,4vw,38px); }
+    .chapter-label { display:inline-block; border-radius:30px; background:#f5edda; color:#76571c; padding:6px 11px; font-size:12px; margin-bottom:14px; }
+    h2#chapterTitle { font-size:clamp(21px,3.5vw,29px); line-height:1.8; margin:0 0 20px; color:#194a3b; }
+    #bookContent { white-space:pre-wrap; overflow-wrap:anywhere; font-size:19px; line-height:2.15; color:#29342f; }
+    .read-bottom { display:flex; gap:8px; justify-content:space-between; padding:15px 18px; border-top:1px solid var(--line); background:#fff; }
+    #empty { color:var(--muted); padding:25px 15px; text-align:center; font-size:14px; }
+    footer { text-align:center; color:var(--muted); font-size:12px; padding:0 16px 25px; }
+    @media (max-width:800px) { .layout { grid-template-columns:1fr; } .side { position:static; } .toc { max-height:260px; } .reader { min-height:400px; } #bookContent { font-size:18px; } }
+    @media (prefers-color-scheme: dark) {
+      :root { color-scheme:dark; --bg:#101a16; --paper:#17231d; --ink:#e8efe9; --muted:#a3b3a9; --green:#b2dac6; --green2:#243d31; --line:#2c4136; --shadow:0 8px 28px rgba(0,0,0,.17); }
+      header { background:linear-gradient(135deg,#102d25,#1e4b39); }
+      input[type=search], .reader-tools, .read-bottom, .tool-btn { background:#17231d; color:var(--ink); }
+      .toc button:hover { background:#203329; }
+      #bookContent { color:#e0e8e2; }
+      h2#chapterTitle { color:#c4e8d5; }
+      .chapter-label { background:#44391f; color:#f0d18a; }
+    }
+  </style>
 </head>
 <body>
-  <h1>ملفات الكتاب</h1>
-  <p>تم إعداد ملفات بيانات الكتاب للنشر.</p>
-  <p>
-    <a href="index.json">فتح فهرس الكتاب</a>
-  </p>
+  <header>
+    <div class="head-inner">
+      <div class="eyebrow">المكتبة الرقمية</div>
+      <h1 id="bookTitle">كتاب تفسير الأحلام</h1>
+      <p id="subtitle">جارٍ تحميل فهرس الكتاب...</p>
+    </div>
+  </header>
+  <div class="statusbar" id="status" role="status" aria-live="polite">يتم الاتصال بملفات الكتاب...</div>
+
+  <main class="layout">
+    <aside class="panel side" aria-label="فهرس الكتاب">
+      <div class="side-head">
+        <h2>فهرس الأبواب</h2>
+        <input id="search" type="search" placeholder="ابحث عن باب..." aria-label="ابحث في عناوين الأبواب" disabled>
+      </div>
+      <nav class="toc" id="toc"><div id="empty">جارٍ تحميل الفهرس...</div></nav>
+    </aside>
+
+    <section class="panel reader" aria-label="نص الكتاب">
+      <div class="reader-tools">
+        <button class="tool-btn" id="prevBtn" type="button" disabled>الباب السابق</button>
+        <button class="tool-btn" id="nextBtn" type="button" disabled>الباب التالي</button>
+        <span class="tools-spacer"></span>
+        <button class="tool-btn" id="smallerBtn" type="button" title="تصغير الخط">أ−</button>
+        <span id="fontLabel">19 px</span>
+        <button class="tool-btn" id="largerBtn" type="button" title="تكبير الخط">أ+</button>
+      </div>
+      <article class="article">
+        <div class="chapter-label" id="chapterLabel">الكتاب</div>
+        <h2 id="chapterTitle">أهلًا بك</h2>
+        <div id="bookContent">ستظهر نصوص الكتاب هنا بعد تحميل البيانات.</div>
+      </article>
+      <div class="read-bottom">
+        <button class="tool-btn" id="bottomPrevBtn" type="button" disabled>← السابق</button>
+        <button class="tool-btn" id="bottomNextBtn" type="button" disabled>التالي ←</button>
+      </div>
+    </section>
+  </main>
+  <footer>يتم تحميل النصوص من ملفات JSON المنشورة مع هذا الموقع.</footer>
+
+  <script>
+    (() => {
+      'use strict';
+      const $ = (id) => document.getElementById(id);
+      const state = { index: null, sections: [], current: -1, fontSize: 19, requestId: 0 };
+      const base = new URL('./', window.location.href);
+      const jsonUrl = (path) => new URL(path, base).toString();
+
+      async function fetchJson(path) {
+        const response = await fetch(jsonUrl(path), { cache: 'no-cache' });
+        if (!response.ok) throw new Error('HTTP ' + response.status + ' أثناء تحميل ' + path);
+        return await response.json();
+      }
+
+      function makeButton(section, position) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = section.title || ('قسم ' + (position + 1));
+        button.dataset.position = String(position);
+        button.addEventListener('click', () => showSection(position));
+        return button;
+      }
+
+      function renderToc(query = '') {
+        const toc = $('toc');
+        toc.replaceChildren();
+        const normalized = query.trim().toLocaleLowerCase('ar');
+        let visible = 0;
+        state.sections.forEach((section, position) => {
+          const title = String(section.title || '');
+          if (normalized && !title.toLocaleLowerCase('ar').includes(normalized)) return;
+          const button = makeButton(section, position);
+          if (position === state.current) button.classList.add('active');
+          toc.appendChild(button);
+          visible++;
+        });
+        if (!visible) {
+          const empty = document.createElement('div');
+          empty.id = 'empty';
+          empty.textContent = 'لا توجد عناوين مطابقة لبحثك.';
+          toc.appendChild(empty);
+        }
+      }
+
+      function updateNavigation() {
+        const hasPrev = state.current > 0;
+        const hasNext = state.current >= 0 && state.current < state.sections.length - 1;
+        ['prevBtn','bottomPrevBtn'].forEach(id => $(id).disabled = !hasPrev);
+        ['nextBtn','bottomNextBtn'].forEach(id => $(id).disabled = !hasNext);
+      }
+
+      async function showSection(position) {
+        if (position < 0 || position >= state.sections.length) return;
+        state.current = position;
+        const section = state.sections[position];
+        const requestId = ++state.requestId;
+        renderToc($('search').value);
+        updateNavigation();
+        $('chapterLabel').textContent = section.type === 'introduction' ? 'مقدمة الكتاب' : ('الباب ' + (section.chapter_number || position));
+        $('chapterTitle').textContent = section.title || 'قسم من الكتاب';
+        $('bookContent').textContent = 'جارٍ تحميل النص...';
+        try {
+          const data = await fetchJson(section.file);
+          if (requestId !== state.requestId) return;
+          $('chapterTitle').textContent = data.title || section.title || 'قسم من الكتاب';
+          $('bookContent').textContent = typeof data.content === 'string' ? data.content : 'صيغة نص هذا القسم غير متوقعة.';
+          $('status').textContent = 'تم تحميل: ' + (data.title || section.title || '') + ' — إجمالي الأبواب: ' + state.index.total_chapters;
+          document.title = (data.title || state.index.book_title) + ' | ' + state.index.book_title;
+          if (window.innerWidth < 801) $('chapterTitle').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } catch (error) {
+          if (requestId !== state.requestId) return;
+          $('bookContent').textContent = 'تعذر تحميل نص هذا القسم. تحقق من وجود الملف في المسار المحدد داخل المستودع، ثم أعد المحاولة.\n\nالتفاصيل: ' + error.message;
+          $('status').textContent = 'تعذّر تحميل القسم المحدد.';
+        }
+      }
+
+      function move(delta) {
+        const next = state.current + delta;
+        if (next >= 0 && next < state.sections.length) showSection(next);
+      }
+
+      $('search').addEventListener('input', () => renderToc($('search').value));
+      $('prevBtn').addEventListener('click', () => move(-1));
+      $('bottomPrevBtn').addEventListener('click', () => move(-1));
+      $('nextBtn').addEventListener('click', () => move(1));
+      $('bottomNextBtn').addEventListener('click', () => move(1));
+      $('smallerBtn').addEventListener('click', () => {
+        state.fontSize = Math.max(14, state.fontSize - 1);
+        $('bookContent').style.fontSize = state.fontSize + 'px';
+        $('fontLabel').textContent = state.fontSize + ' px';
+      });
+      $('largerBtn').addEventListener('click', () => {
+        state.fontSize = Math.min(32, state.fontSize + 1);
+        $('bookContent').style.fontSize = state.fontSize + 'px';
+        $('fontLabel').textContent = state.fontSize + ' px';
+      });
+
+      async function init() {
+        try {
+          const index = await fetchJson('index.json');
+          if (!Array.isArray(index.chapters)) throw new Error('ملف index.json لا يحتوي على قائمة chapters صحيحة.');
+          state.index = index;
+          state.sections = [];
+          if (index.introduction_file) {
+            state.sections.push({ id: 'introduction', type: 'introduction', title: 'المقدمة وما قبل الباب الأول', file: index.introduction_file });
+          }
+          index.chapters.forEach(chapter => state.sections.push({ ...chapter, type: 'chapter' }));
+          $('bookTitle').textContent = index.book_title || 'الكتاب';
+          $('subtitle').textContent = 'المقدمة و' + (index.total_chapters || index.chapters.length) + ' بابًا';
+          $('search').disabled = false;
+          renderToc();
+          await showSection(0);
+        } catch (error) {
+          $('status').textContent = 'تعذّر تحميل فهرس الكتاب.';
+          $('subtitle').textContent = 'تحقق من نشر ملفات JSON في نفس الموقع.';
+          $('chapterTitle').textContent = 'لم يتم تحميل الكتاب';
+          $('bookContent').textContent = 'تأكد من وجود index.json في جذر المستودع بجانب index.html، وأن ملفات المقدمة والأبواب موجودة بالمسارات المحددة في الفهرس.\n\nالتفاصيل: ' + error.message;
+          $('toc').innerHTML = '<div id="empty">تعذّر تحميل الفهرس.</div>';
+          console.error(error);
+        }
+      }
+      init();
+    })();
+  </script>
 </body>
 </html>
