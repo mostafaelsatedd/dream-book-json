@@ -1,0 +1,188 @@
+{
+  "book": "تعطير الأنام في تعبير المنام",
+  "author": "عبد الغني النابلسي",
+  "encoding": "UTF-8",
+  "schema_version": "1.0",
+  "total_letters": 28,
+  "total_entries": 2435,
+  "other_files": [
+    {
+      "file": "مقدمة.json",
+      "description": "معلومات الكتاب والفهرس والمقدمة قبل باب الألف."
+    },
+    {
+      "file": "خاتمة.json",
+      "description": "خاتمة المؤلف وما بعدها حتى نهاية المصدر."
+    }
+  ],
+  "letters": [
+    {
+      "letter": "الألف",
+      "letter_key": "ا",
+      "file": "01_الألف.json",
+      "entry_count": 96
+    },
+    {
+      "letter": "الباء",
+      "letter_key": "ب",
+      "file": "02_الباء.json",
+      "entry_count": 108
+    },
+    {
+      "letter": "التاء",
+      "letter_key": "ت",
+      "file": "03_التاء.json",
+      "entry_count": 79
+    },
+    {
+      "letter": "الثاء",
+      "letter_key": "ث",
+      "file": "04_الثاء.json",
+      "entry_count": 19
+    },
+    {
+      "letter": "الجيم",
+      "letter_key": "ج",
+      "file": "05_الجيم.json",
+      "entry_count": 107
+    },
+    {
+      "letter": "الحاء",
+      "letter_key": "ح",
+      "file": "06_الحاء.json",
+      "entry_count": 130
+    },
+    {
+      "letter": "الخاء",
+      "letter_key": "خ",
+      "file": "07_الخاء.json",
+      "entry_count": 83
+    },
+    {
+      "letter": "الدال",
+      "letter_key": "د",
+      "file": "08_الدال.json",
+      "entry_count": 77
+    },
+    {
+      "letter": "الذال",
+      "letter_key": "ذ",
+      "file": "09_الذال.json",
+      "entry_count": 25
+    },
+    {
+      "letter": "الراء",
+      "letter_key": "ر",
+      "file": "10_الراء.json",
+      "entry_count": 97
+    },
+    {
+      "letter": "الزاي",
+      "letter_key": "ز",
+      "file": "11_الزاي.json",
+      "entry_count": 62
+    },
+    {
+      "letter": "السين",
+      "letter_key": "س",
+      "file": "12_السين.json",
+      "entry_count": 259
+    },
+    {
+      "letter": "الشين",
+      "letter_key": "ش",
+      "file": "13_الشين.json",
+      "entry_count": 92
+    },
+    {
+      "letter": "الصاد",
+      "letter_key": "ص",
+      "file": "14_الصاد.json",
+      "entry_count": 87
+    },
+    {
+      "letter": "الضاد",
+      "letter_key": "ض",
+      "file": "15_الضاد.json",
+      "entry_count": 30
+    },
+    {
+      "letter": "الطاء",
+      "letter_key": "ط",
+      "file": "16_الطاء.json",
+      "entry_count": 56
+    },
+    {
+      "letter": "الظاء",
+      "letter_key": "ظ",
+      "file": "17_الظاء.json",
+      "entry_count": 16
+    },
+    {
+      "letter": "العين",
+      "letter_key": "ع",
+      "file": "18_العين.json",
+      "entry_count": 137
+    },
+    {
+      "letter": "الغين",
+      "letter_key": "غ",
+      "file": "19_الغين.json",
+      "entry_count": 57
+    },
+    {
+      "letter": "الفاء",
+      "letter_key": "ف",
+      "file": "20_الفاء.json",
+      "entry_count": 85
+    },
+    {
+      "letter": "القاف",
+      "letter_key": "ق",
+      "file": "21_القاف.json",
+      "entry_count": 143
+    },
+    {
+      "letter": "الكاف",
+      "letter_key": "ك",
+      "file": "22_الكاف.json",
+      "entry_count": 91
+    },
+    {
+      "letter": "اللام",
+      "letter_key": "ل",
+      "file": "23_اللام.json",
+      "entry_count": 54
+    },
+    {
+      "letter": "الميم",
+      "letter_key": "م",
+      "file": "24_الميم.json",
+      "entry_count": 236
+    },
+    {
+      "letter": "النون",
+      "letter_key": "ن",
+      "file": "25_النون.json",
+      "entry_count": 99
+    },
+    {
+      "letter": "الهاء",
+      "letter_key": "ه",
+      "file": "26_الهاء.json",
+      "entry_count": 37
+    },
+    {
+      "letter": "الواو",
+      "letter_key": "و",
+      "file": "27_الواو.json",
+      "entry_count": 56
+    },
+    {
+      "letter": "الياء",
+      "letter_key": "ي",
+      "file": "28_الياء.json",
+      "entry_count": 17
+    }
+  ]
+}
